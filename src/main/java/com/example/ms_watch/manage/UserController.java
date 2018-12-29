@@ -4,12 +4,12 @@ package com.example.ms_watch.manage;
 import com.example.ms_watch.repo.UserRepo;
 import com.example.ms_watch.users.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
-@RestController
-@RequestMapping({"/"})
+@Controller
 public class UserController {
 
     @Autowired
@@ -17,8 +17,8 @@ public class UserController {
 
 
     @GetMapping("/get")
-    public Iterable<User> getAll() {
-        return userRepo.findAll();
+    public String index() {
+        return "index";
     }
 
     @RequestMapping(value = "/kupp")
