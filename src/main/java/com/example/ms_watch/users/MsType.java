@@ -8,10 +8,11 @@ import java.io.Serializable;
 @Table(name = "ms_type")
 public class MsType implements Serializable {
 
-
+    @Id
     @Column(name = "type_id")
     private int typeId;
 
+    @Id
     @Column(name = "ms_id")
     private int msId;
 
