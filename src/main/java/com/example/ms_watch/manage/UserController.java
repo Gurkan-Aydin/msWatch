@@ -24,6 +24,6 @@ public class UserController {
     @RequestMapping(value = "/kupp")
     @ResponseBody
     public Collection<User> getById(@RequestParam("id") int id) {
-        return userRepo.findAllActiveUsers(1);
+        return userRepo.findAllActiveUsers(id);
     }
 }
