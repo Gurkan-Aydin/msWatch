@@ -1,4 +1,4 @@
-package com.example.ms_watch.users;
+package com.example.ms_watch.models;
 
 
 

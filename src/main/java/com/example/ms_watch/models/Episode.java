@@ -1,9 +1,8 @@
-package com.example.ms_watch.users;
+package com.example.ms_watch.models;
 
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 @Table(name = "episode")

@@ -1,4 +1,8 @@
-<%--
+<%@ page import="com.example.ms_watch.repo.UserRepo" %>
+<%@ page import="com.example.ms_watch.models.User" %>
+<%@ page import="org.springframework.beans.factory.annotation.Autowired" %>
+<%@ page import="com.example.ms_watch.manage.UserController" %>
+<%@ page import="org.springframework.data.jpa.repository.Query" %><%--
   Created by IntelliJ IDEA.
   User: gurkan
   Date: 12/29/18

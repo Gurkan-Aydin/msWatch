@@ -5,10 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="login">
+    <form action="getUser">
         User Name: <input type="text" name="userName" value="" />
         Password: <input type="password" name="password" value="" />
         <input type="submit" value="Login">
+
     </form>
+
+    <form action="register.jsp">
+        <input type="submit" value="Create Account">
+    </form>
+
+
 </body>
 </html>

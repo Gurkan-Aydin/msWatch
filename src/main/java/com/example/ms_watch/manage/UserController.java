@@ -2,7 +2,7 @@ package com.example.ms_watch.manage;
 
 
 import com.example.ms_watch.repo.UserRepo;
-import com.example.ms_watch.users.User;
+import com.example.ms_watch.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +17,8 @@ public class UserController {
 
 
     @GetMapping("/get")
-    public String index() {
-        return "index";
+    public Object index() {
+        return userRepo.findAll();
     }
 
     @RequestMapping(value = "/kupp")
@@ -26,4 +26,7 @@ public class UserController {
     public Collection<User> getById(@RequestParam("id") int id) {
         return userRepo.findAllActiveUsers(id);
     }
+
+
+
 }

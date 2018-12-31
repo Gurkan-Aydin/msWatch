@@ -2,29 +2,40 @@ package com.example.ms_watch.manage;
 
 
 import com.example.ms_watch.repo.UserRepo;
-import com.github.kevinsawicki.http.HttpRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
 
 @Controller
 public class Login {
 
-    UserRepo userRepo;
-    UserController userController = new UserController();
+    @Autowired
+    private UserRepo userRepo;
 
     @GetMapping(name = "/")
-    public String login(){
+    public String login() {
         return "login";
     }
 
-    @RequestMapping(value = "/login")
-    @ResponseBody
-    public void loginFrom(@RequestParam("userName") String userName,@RequestParam("password") String password){
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public void addUser(@RequestParam("userName") String userName, @RequestParam("password") String password) {
+
 
     }
+
+    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
+    public String index(@ModelAttribute("userName") String userName,@ModelAttribute("password") String password){
+        Object user = userRepo.getLogin(userName, password);
+        if(((Collection) user).isEmpty()) return "login";
+        else
+            return  "index";
+    }
+
+
+
+
 
 
 
