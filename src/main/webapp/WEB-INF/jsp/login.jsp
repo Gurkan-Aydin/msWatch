@@ -12,7 +12,7 @@
 
     </form>
 
-    <form action="register.jsp">
+    <form action="goregister">
         <input type="submit" value="Create Account">
     </form>
 

@@ -2,7 +2,9 @@
 <%@ page import="com.example.ms_watch.models.User" %>
 <%@ page import="org.springframework.beans.factory.annotation.Autowired" %>
 <%@ page import="com.example.ms_watch.manage.UserController" %>
-<%@ page import="org.springframework.data.jpa.repository.Query" %><%--
+<%@ page import="com.example.ms_watch.manage.LoginController" %>
+<%@ page import="org.springframework.data.jpa.repository.Query" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: gurkan
   Date: 12/29/18
@@ -19,6 +21,7 @@
   </head>
   <body>
       <h2>as0df</h2>
+
 
   </body>
 </html>

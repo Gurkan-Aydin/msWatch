@@ -4,6 +4,9 @@ package com.example.ms_watch.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -19,7 +22,7 @@ public class User implements Serializable {
     private String name;
 
     @Column(name = "lastname")
-    private String lastname;
+    private String lastName;
 
     @Column(name = "user_name")
     private String userName;
@@ -31,25 +34,29 @@ public class User implements Serializable {
     private String email;
 
     @Column(name = "birthday")
-    private Date birthday;
+    private String birthday;
 
     @Column(name = "open_date")
-    private Date openDate;
+    private String openDate;
+
+    @Column(name = "type_id")
+    private int typeId;
 
 
     public User() {
     }
 
-
-    public User(String name, String lastname, String userName, String password, String email, Date birthday, Date openDate) {
+    public User(String name, String lastName, String userName, String password, String email, String birthday, String openDate, int typeId) {
         this.name = name;
-        this.lastname = lastname;
+        this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.email = email;
         this.birthday = birthday;
         this.openDate = openDate;
+        this.typeId = typeId;
     }
+
 
     public int getId() {
         return id;
@@ -67,12 +74,12 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getUserName() {
@@ -99,19 +106,29 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
-    public Date getOpenDate() {
+    public String getOpenDate() {
         return openDate;
     }
 
-    public void setOpenDate(Date openDate) {
+    public void setOpenDate(String openDate) {
         this.openDate = openDate;
     }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
 }
+
+
