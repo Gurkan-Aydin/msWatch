@@ -5,11 +5,14 @@ import com.example.ms_watch.models.User;
 import com.example.ms_watch.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,9 +25,10 @@ public class AdminController {
     private UserRepo userRepo;
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private  JdbcTemplate jdbcTemplate;
 
-    public static List<User> userList = new ArrayList<User>();
+    public List<User> userList = new ArrayList<User>();
+    public static List<User> userList2 = new ArrayList<User>();
 
 
 
@@ -41,9 +45,9 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/getUsers", method = RequestMethod.GET)
-    public String getUsers(){
-        userList.addAll(userRepo.findUsers());
-        return "admin";
+    public List<User> getUsers(){
+            return userRepo.findUsers();
+
     }
 
 }
