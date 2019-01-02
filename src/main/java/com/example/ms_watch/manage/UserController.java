@@ -21,10 +21,10 @@ public class UserController {
         return userRepo.findAll();
     }
 
-    @RequestMapping(value = "/kupp")
+    @RequestMapping(value = "/userById")
     @ResponseBody
     public Collection<User> getById(@RequestParam("id") int id) {
-        return userRepo.findAllActiveUsers(id);
+        return userRepo.findUserById(id);
     }
 
 

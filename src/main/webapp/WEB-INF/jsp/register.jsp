@@ -5,7 +5,7 @@
     <title>Register</title>
 </head>
 <body>
-    <form action="gologin">
+    <form action="register">
         Name: <input type="text" name="name" value="" /><br>
         Last Name: <input type="text" name="lastName" value="" /><br>
         User Name: <input type="text" name="userName" value="" /><br>

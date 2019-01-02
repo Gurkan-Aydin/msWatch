@@ -19,19 +19,23 @@ public interface UserRepo extends CrudRepository<User, Integer> {
 
     @Query(value = "SELECT * FROM user WHERE user.id = :id",
             nativeQuery = true)
-    Collection<User> findAllActiveUsers(@Param("id") int id);
+    Collection<User> findUserById(@Param("id") int id);
 
     @Query(value = "SELECT * from user u where u.user_name= :userName and u.password = :password",
             nativeQuery = true)
     List<User> getLogin(@Param("userName") String userName, @Param("password") String password );
 
 
-    /*@Query(value = "update user u set id = :id, name = :name , last_name = :lastName, user_name = :userName, password = :password, " +
-            "birthday = :birthday, open_date = :openDate, email = :email, type_id = :",
+    @Query(value = "update user set name = :name , last_name = :lastName, user_name = :userName, password = :password, " +
+            "birthday = :birthday, open_date = :openDate, email = :email, type_id = :typeId where id = :id",
             nativeQuery = true)
-    boolean addUser(@Param("id") int id, @Param("name") String name, @Param("lastName") String lastName,
+    boolean updateUser(@Param("id") int id, @Param("name") String name, @Param("lastName") String lastName,
                               @Param("userName") String userName, @Param("password") String password,
                               @Param("birthday") SimpleDateFormat birthday, @Param("openDate") LocalDate openDate,
-                              @Param("email") String email, @Param("typeId") int typeId);*/
+                              @Param("email") String email, @Param("typeId") int typeId);
+
+    @Query(value = "SELECT * FROM user WHERE user.type_id = 2 and user.type_id = 3",
+            nativeQuery = true)
+    List<User> findUsers();
 
 }
