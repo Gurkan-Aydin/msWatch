@@ -26,20 +26,25 @@ public class MoviesSeries implements Serializable {
     private int producerId;
 
     @Column(name = "time")
-    private Date time;
+    private int time;
+
+    @Column(name = "release_date")
+    private String  releaseDate;
 
     @Column(name = "is_series")
-    private boolean isSeries;
+    private String isSeries;
 
     public MoviesSeries() {
     }
 
-    public MoviesSeries(String title, int point, String cover, int producerId, Date time, boolean isSeries) {
+
+    public MoviesSeries(String title, int point, String cover, int producerId, int time, String releaseDate, String isSeries) {
         this.title = title;
         this.point = point;
         this.cover = cover;
         this.producerId = producerId;
         this.time = time;
+        this.releaseDate = releaseDate;
         this.isSeries = isSeries;
     }
 
@@ -83,19 +88,27 @@ public class MoviesSeries implements Serializable {
         this.producerId = producerId;
     }
 
-    public Date getTime() {
+    public int getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(int time) {
         this.time = time;
     }
 
-    public boolean isSeries() {
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getIsSeries() {
         return isSeries;
     }
 
-    public void setSeries(boolean series) {
-        isSeries = series;
+    public void setIsSeries(String isSeries) {
+        this.isSeries = isSeries;
     }
 }
