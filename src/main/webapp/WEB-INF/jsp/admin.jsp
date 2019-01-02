@@ -50,9 +50,13 @@
         </tr>
     </c:forEach>
 </table>
+<form action="deleteUser">
+    Id for User: <input type="text" name="id" value=""><br>
+    <input type="submit" value="deleteUser" class="w3-padding w3-button w3-red w3-round">
+</form>
 <form action="updatableUser">
-    <input type="text" name="id" value="">
-    <input type="submit" value="Edit User" class="w3-padding w3-button w3-red w3-round">
+    Id for User: <input type="text" name="id" value=""><br>
+    <input type="submit" value="Update User" class="w3-padding w3-button w3-red w3-round">
 </form>
 
 <!-- Optional JavaScript -->

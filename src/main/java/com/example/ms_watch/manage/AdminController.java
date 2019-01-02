@@ -56,4 +56,12 @@ public class AdminController {
             return "updateUser";
     }
 
+    @RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
+    public String deleteUser(@ModelAttribute("id") int id){
+        String query = "delete from user where id = ?";
+        Object[] person = new Object[] {id};
+        jdbcTemplate.update(query, person);
+        return "admin";
+    }
+
 }
