@@ -19,7 +19,7 @@ public interface UserRepo extends CrudRepository<User, Integer> {
 
     @Query(value = "SELECT * FROM user WHERE user.id = :id",
             nativeQuery = true)
-    Collection<User> findUserById(@Param("id") int id);
+    User findUserById(@Param("id") int id);
 
     @Query(value = "SELECT * from user u where u.user_name= :userName and u.password = :password",
             nativeQuery = true)
@@ -34,7 +34,7 @@ public interface UserRepo extends CrudRepository<User, Integer> {
                               @Param("birthday") SimpleDateFormat birthday, @Param("openDate") LocalDate openDate,
                               @Param("email") String email, @Param("typeId") int typeId);
 
-    @Query(value = "SELECT * FROM user WHERE user.type_id = 2 and user.type_id = 3",
+    @Query(value = "SELECT * FROM user WHERE type_id = 2 or type_id = 3",
             nativeQuery = true)
     List<User> findUsers();
 

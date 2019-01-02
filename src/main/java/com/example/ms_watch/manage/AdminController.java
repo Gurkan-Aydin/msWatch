@@ -26,20 +26,24 @@ public class AdminController {
 
     public static List<User> userList = new ArrayList<User>();
 
+
+
     @RequestMapping(value = "/updateUser", method = RequestMethod.GET)
     public String updateUser(@ModelAttribute("id") int id,@ModelAttribute("name") String name, @ModelAttribute("lastName") String lastName,
                              @ModelAttribute("userName") String userName, @ModelAttribute("password") String password,
-                             @ModelAttribute("birthday") SimpleDateFormat birthday, @ModelAttribute("email") String email ){
-        User user = new User(name, lastName, userName, password,email, ""+birthday, ""+ LocalDate.now(), 1);
-        jdbcTemplate.update("update user set name = '"+ name +"' , last_name = '"+ lastName +"', user_name = '"+ userName +"', password = '"+ password +"'," +
-                "birthday = :birthday, open_date = :openDate, email = :email, type_id = :typeId where id = :id");
+                             @ModelAttribute("birthday") SimpleDateFormat birthday, @ModelAttribute("email") String email,
+                             @ModelAttribute("typeId") String typeId ){
+        jdbcTemplate.update("update user set name = '"+ name +"' , last_name = '"+ lastName +
+                "', user_name = '"+ userName +"', password = '"+ password +"'," +
+                "birthday = '"+ birthday +"', open_date = '"+ (""+ LocalDate.now()) +
+                "', email = '"+ email +"', type_id = '"+typeId+"' where id = "+id);
         return "admin";
     }
 
     @RequestMapping(value = "/getUsers", method = RequestMethod.GET)
-    public void getUsers(){
+    public String getUsers(){
         userList.addAll(userRepo.findUsers());
-
+        return "admin";
     }
 
 }

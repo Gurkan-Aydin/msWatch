@@ -23,7 +23,7 @@ public class UserController {
 
     @RequestMapping(value = "/userById")
     @ResponseBody
-    public Collection<User> getById(@RequestParam("id") int id) {
+    public User getById(@RequestParam("id") int id) {
         return userRepo.findUserById(id);
     }
 
