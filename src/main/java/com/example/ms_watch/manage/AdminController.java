@@ -28,7 +28,7 @@ public class AdminController {
     private  JdbcTemplate jdbcTemplate;
 
     public List<User> userList = new ArrayList<User>();
-    public static List<User> userList2 = new ArrayList<User>();
+    public static User user;
 
 
 
@@ -37,7 +37,7 @@ public class AdminController {
                              @ModelAttribute("userName") String userName, @ModelAttribute("password") String password,
                              @ModelAttribute("birthday") SimpleDateFormat birthday, @ModelAttribute("email") String email,
                              @ModelAttribute("typeId") String typeId ){
-        jdbcTemplate.update("update user set name = '"+ name +"' , last_name = '"+ lastName +
+        jdbcTemplate.update("update user set name = '"+ name +"' , lastname = '"+ lastName +
                 "', user_name = '"+ userName +"', password = '"+ password +"'," +
                 "birthday = '"+ birthday +"', open_date = '"+ (""+ LocalDate.now()) +
                 "', email = '"+ email +"', type_id = '"+typeId+"' where id = "+id);
@@ -48,6 +48,12 @@ public class AdminController {
     public List<User> getUsers(){
             return userRepo.findUsers();
 
+    }
+
+    @RequestMapping(value = "/updatableUser", method = RequestMethod.GET)
+    public String getUpdatable(@ModelAttribute("id") int id){
+         user = userRepo.findUserById(id);
+            return "updateUser";
     }
 
 }

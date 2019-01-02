@@ -50,7 +50,7 @@
         </tr>
     </c:forEach>
 </table>
-<form action="goupdateUser">
+<form action="updatableUser">
     <input type="text" name="id" value="">
     <input type="submit" value="Edit User" class="w3-padding w3-button w3-red w3-round">
 </form>

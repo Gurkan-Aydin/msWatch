@@ -40,10 +40,14 @@ public class LoginController {
     public String addUser(@ModelAttribute("name") String name, @ModelAttribute("lastName") String lastName,
                         @ModelAttribute("userName") String userName, @ModelAttribute("password") String password,
                         @ModelAttribute("birthday") SimpleDateFormat birthday, @ModelAttribute("email") String email ){
-        User user = new User(name, lastName, userName, password,email, ""+birthday, ""+LocalDate.now(), 1);
-        jdbcTemplate.update("INSERT INTO user (name, lastname, user_name, password,email, birthday, open_date, type_id)VALUES(?,?,?,?,?,?,?,?)",
-                name, lastName, userName, password,email, ""+birthday, ""+LocalDate.now(), 1 );
-        return "login";
+        try {
+            User user = new User(name, lastName, userName, password, email, "" + birthday, "" + LocalDate.now(), 1);
+            jdbcTemplate.update("INSERT INTO user (name, lastname, user_name, password,email, birthday, open_date, type_id)VALUES(?,?,?,?,?,?,?,?)",
+                    name, lastName, userName, password, email, "" + birthday, "" + LocalDate.now(), 1);
+            return "login";
+        }catch (Exception exception){
+            return "register";
+        }
     }
 
 

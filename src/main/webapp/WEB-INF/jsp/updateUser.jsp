@@ -1,3 +1,5 @@
+<%@ page import="com.example.ms_watch.models.User" %>
+<%@ page import="com.example.ms_watch.manage.AdminController" %>
 <head>
     <title>Admin</title>
     <!-- Required meta tags -->
@@ -12,35 +14,48 @@
 
 <body class="w3-gray">
 
+<%
+   User user = AdminController.user;
+%>
+
+
 <div class="container">
     <div class="w3-card-4 w3-display-middle w3-white" style="min-width: 350px;">
         <form action="updateUser">
             <label class="w3-red w3-text-white w3-container">Update User</label>
             <div class="form-group w3-margin">
+                <label>Id:</label>
+                <input type="text" name="id" value="<%=user.getId()%>" class="form-control" />
+            </div>
+            <div class="form-group w3-margin">
                 <label>Name:</label>
-                <input type="text" name="name" value="" class="form-control" />
+                <input type="text" name="name" value="<%=user.getName()%>" class="form-control" />
             </div>
             <div class="form-group w3-margin">
                 <label> Last Name:</label>
-                <input type="text" name="lastName" value="" class="form-control" />
+                <input type="text" name="lastName" value="<%=user.getLastName()%>" class="form-control" />
             </div>
             <div class="form-group w3-margin">
                 <label>User Name:</label>
-                <input type="text" name="userName" value="" class="form-control" />
+                <input type="text" name="userName" value="<%=user.getUserName()%>" class="form-control" />
             </div>
             <div class="form-group w3-margin">
                 <label>Password:</label>
-                <input type="password" name="password" value="" class="form-control" />
+                <input type="password" name="password" value="<%=user.getPassword()%>" class="form-control" />
             </div>
             <div class="form-group w3-margin">
                 <label>Birthday:</label>
-                <input type="date" name="birthday" value="" class="form-control" />
+                <input type="date" name="birthday" value="<%=user.getBirthday()%>" class="form-control" />
             </div>
             <div class="form-group w3-margin">
                 <label>Email:</label>
-                <input type="email" name="email" value="" class="form-control" />
+                <input type="email" name="email" value="<%=user.getEmail()%>" class="form-control" />
             </div>
-            <input type="submit" value="Create" class="w3-button w3-round w3-green w3-margin">
+            <div class="form-group w3-margin">
+                <label>Type Id:</label>
+                <input type="text" name="typeId" value="<%=user.getTypeId()%>" class="form-control" />
+            </div>
+            <input type="submit" value="Update" class="w3-button w3-round w3-green w3-margin">
         </form>
 
     </div>
