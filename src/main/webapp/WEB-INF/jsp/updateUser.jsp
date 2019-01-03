@@ -18,6 +18,13 @@
    User user = AdminController.user;
 %>
 
+        <!-- Hrefleri doldurmayi untma!-->
+        <div class="w3-bar w3-black w3-mobile">
+                <a href="#" class="w3-bar-item w3-button w3-red">Admin</a>
+                <a href="#" class="w3-bar-item w3-button">User List</a>
+                <a href="#" class="w3-bar-item w3-button">Movie List</a>
+                <a href="#" class="w3-bar-item w3-button w3-red w3-right">Out</a>
+            </div>
 
 <div class="container">
     <div class="w3-card-4 w3-display-middle w3-white" style="min-width: 350px;">
